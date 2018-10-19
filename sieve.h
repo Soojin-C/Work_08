@@ -1,0 +1,3 @@
+
+
+int sieve(int n); 
