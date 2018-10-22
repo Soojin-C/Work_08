@@ -13,7 +13,10 @@ int sieve (int n){
   }
   else{
 
-    size = (n * (int)log(n) * 1.15);
+    size = (int)(log(n));
+    printf("%d", size);
+    size *= n;
+    size *= 1.15;
 
   }
   //char table[size];
@@ -52,7 +55,7 @@ int sieve (int n){
       factor++;
 
     }
-    printf("factor -> %d  current -> %d \n", factor, curr_number);
+    //printf("factor -> %d  current -> %d \n", factor, curr_number);
   }
   
   return size;
