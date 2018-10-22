@@ -23,17 +23,17 @@ int sieve (int n){
   int factor = 2;
   int curr_number = 1;
   
-  while (factor < size){
+  while (factor < (size/2)){
 
     
     *(pointer + factor) = 0;
-    if (curr_number == n){
+    //if (curr_number == n){
 
       
-      return factor;
+    //  return factor;
 
-    }
-    else {
+      // }
+    //else {
 
       //printf("error\n");
       int multiple = factor + factor;
@@ -44,15 +44,34 @@ int sieve (int n){
 	
       }
       
-    }
+      //}
     factor ++;
-    curr_number++;
+    //curr_number++;
     while ((factor + 1  < size) && *( pointer + factor ) == 1 ){
 
       factor++;
 
     }
     //printf("factor -> %d  current -> %d \n", factor, curr_number);
+  }
+
+  factor = 2;
+  while (factor < size){
+
+    if (curr_number == n){
+
+      return factor;
+
+    }
+
+    factor ++;
+    curr_number ++;
+    while ((factor + 1  < size) && *( pointer + factor ) == 1 ){
+
+      factor++;
+
+    }
+
   }
   
   return size;

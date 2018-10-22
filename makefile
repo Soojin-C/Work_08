@@ -10,4 +10,10 @@ driver.o: sieve.h driver.c
 
 run:
 	./a.out
+	make clear
+
+clear:
+	rm a.out
+	rm driver.o
+	rm sieve.o
 
