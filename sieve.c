@@ -13,15 +13,12 @@ int sieve (int n){
   }
   else{
 
-    size = (int)(log(n));
-    printf("%d", size);
-    size *= n;
-    size *= 1.15;
+    size = (log(n) * 1.15 * n);
 
   }
   //char table[size];
   //char * pointer = &table[size];
-  printf("%d -- %d\n", (int)log(n), size);
+  //printf("%d -- %d\n", (int)log(n), size);
   char * pointer = calloc(sizeof(int), size);
   int factor = 2;
   int curr_number = 1;
