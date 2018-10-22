@@ -4,6 +4,7 @@
 
 int main(){
 
+  //printf("%d\n", sieve(25));
   printf("%d\n", sieve(1000000));
 
 }

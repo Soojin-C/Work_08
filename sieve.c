@@ -5,26 +5,41 @@
 
 
 int sieve (int n){
+  int size;
+  if ( n < 50000){
 
-  char size = (int)(n * log(n) * 1.15);
-  printf("%d -- %d", (int)log(n), size);
-  char table[size];
+    size = (int) (n * log(n) * 1.3);
+
+  }
+  else{
+
+    size = (n * (int)log(n) * 1.15);
+
+  }
+  //char table[size];
+  //char * pointer = &table[size];
+  printf("%d -- %d\n", (int)log(n), size);
+  char * pointer = calloc(sizeof(int), size);
   int factor = 2;
   int curr_number = 1;
+  
   while (factor < size){
 
-    table[ factor ] = 0;
+    
+    *(pointer + factor) = 0;
     if (curr_number == n){
 
+      
       return factor;
 
     }
     else {
 
+      //printf("error\n");
       int multiple = factor + factor;
-      while (multiple < size || table[ multiple ] == 1){
+      while (multiple < size - 1 || *(pointer + multiple ) == 1){
 
-	table[ multiple ] = 1;
+	*(pointer + multiple ) = 1;
 	multiple = multiple + factor;
 	
       }
@@ -32,12 +47,12 @@ int sieve (int n){
     }
     factor ++;
     curr_number++;
-    while (table[ factor ] == 1){
+    while ((factor + 1  < size) && *( pointer + factor ) == 1 ){
 
       factor++;
 
     }
-    printf("factor -> %d \n current -> %d ", factor, curr_number);
+    printf("factor -> %d  current -> %d \n", factor, curr_number);
   }
   
   return size;
